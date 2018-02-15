@@ -11,7 +11,7 @@ client.on('message', message => {
 	var result = args.join(' ');
 
 	if (message.content === 'What is your prefix?') {
-	    message.reply(prefix);
+	        message.channel.sendMessage(prefix);
 	}
 	
 	if (!message.content.startsWith(prefix)) return;

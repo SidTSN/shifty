@@ -22,7 +22,7 @@ client.on('message', message => {
 	} else
 
 	if (message.content.startsWith(config.prefix + 'send')) {
-		client.channels.get('245491978601627648').sendMessage('Hello from second channel!');
+		client.channels.get('402386313548136448').sendMessage('Testing message sending to another channel.');
 	} else
 
 	if (message.content.startsWith(config.prefix + 'setgame')) {

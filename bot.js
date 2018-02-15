@@ -10,6 +10,10 @@ client.on('message', message => {
     let args = message.content.split(' ').slice(1);
 	var result = args.join(' ');
 
+	if (message.content === 'What is your prefix?') {
+	    message.reply(prefix);
+	}
+	
 	if (!message.content.startsWith(prefix)) return;
 	if (message.author.bot) return;
 
@@ -35,8 +39,8 @@ client.on('message', message => {
 		client.user.setStatus(result);
 	} else
 
-	if (message.content === 'What is your prefix?') {
-	    message.reply(prefix);
+	if (message.content.startsWith(prefix + 'foo')) {
+		message.channel.sendMessage('bar');
 	}
 });
 

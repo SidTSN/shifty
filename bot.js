@@ -9,7 +9,8 @@ client.on('ready', () => {
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
     var argresult = args.join(' ');
-    var game = args.join(' ');
+    let gameargs = message.content.split(' ').slice(1);
+    var game = gameargs.join(' ');
 
 	if (message.content === 'What is your prefix?') {
 	        message.channel.sendMessage(config.prefix);

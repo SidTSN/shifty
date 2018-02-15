@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = require('./settings.json').prefix;
 
 client.on('ready', () => {
     console.log('I am ready!');
 });
 
-var prefix = "Shifty/"
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
 	var result = args.join(' ');

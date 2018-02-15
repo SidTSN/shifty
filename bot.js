@@ -9,6 +9,7 @@ client.on('ready', () => {
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
     var argresult = args.join(' ');
+    var game = args.join(' ');
 
 	if (message.content === 'What is your prefix?') {
 	        message.channel.sendMessage(config.prefix);
@@ -26,7 +27,7 @@ client.on('message', message => {
 	} else
 
 	if (message.content.startsWith(config.prefix + 'setgame')) {
-		client.user.setPresence({ game: { name: argresult, type: 0 } });
+		client.user.setGame(game);
 	} else
 
 	if (message.content.startsWith(config.prefix + 'setstatus')) {

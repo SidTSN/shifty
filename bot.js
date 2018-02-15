@@ -5,8 +5,10 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+var prefix = "Shifty/"
 client.on('message', message => {
-    if (message.content === 'r u online') {
+    if (message.author === client.user) return;
+    if (message.content.startsWith(prefix + 'r u online')) {
         message.reply('yes, i am online and awaiting command');
     }
 });

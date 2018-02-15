@@ -36,7 +36,7 @@ client.on('message', message => {
 	} else
 
 	if (message.content === 'What is your prefix?') {
-		message.channel.sendMessage(prefix);
+	    message.reply(prefix);
 	}
 });
 

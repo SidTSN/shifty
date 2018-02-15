@@ -26,16 +26,10 @@ client.on('message', message => {
 	} else
 
 	if (message.content.startsWith(config.prefix + 'setgame')) {
-		if (!result) {
-			result = null;
-		}
 		client.user.setGame(result);
 	} else
 
 	if (message.content.startsWith(config.prefix + 'setstatus')) {
-		if (!result) {
-			result = 'online';
-		}
 		client.user.setStatus(result);
 	} else
 

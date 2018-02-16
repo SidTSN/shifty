@@ -30,6 +30,11 @@ client.on('message', message => {
 		client.user.setPresence({ game: { name: result, type: 0 } });
 	} else
 		
+	if (message.content.startsWith(config.prefix + 'SetStatus')) {
+		if (!result) result = null;
+		client.user.setStatus(result);
+	}
+		
 	if (message.content.startsWith(config.prefix + 'Help')) {
 		message.reply('What is your prefix? = Prefix Check \n R U Online = status check \n SetGame = set playing msg \n Set Status = set status msg \n COMMNANDS ARE CASE SENSITIVE')	
 	}

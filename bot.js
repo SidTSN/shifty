@@ -26,7 +26,7 @@ client.on('message', message => {
 	} else
 
 	if (message.content.startsWith(config.prefix + 'Set Game')) {
-		client.setGame(config.game);
+		client.user.setGame(config.game);
 	} else
 
 	if (message.content.startsWith(config.prefix + 'Set Status')) {

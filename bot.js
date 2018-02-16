@@ -25,7 +25,7 @@ client.on('message', message => {
 		client.channels.get('402386313548136448').sendMessage('Testing message sending to another channel.');
 	} else
 
-	if (message.content.startsWith(config.prefix + 'Set Game')) {
+	if (message.content.startsWith(config.prefix + 'SetGame')) {
 		client.user.setPresence({ game: { name: result, type: 0 } });
 	} else
 
@@ -34,7 +34,7 @@ client.on('message', message => {
 	} else
 		
 	if (message.content.startsWith(config.prefix + 'Help')) {
-		message.reply('What is your prefix? = Prefix Check \n R U Online = status check \n Set Game = set playing msg \n Set Status = set status msg \n COMMNANDS ARE CASE SENSITIVE')	
+		message.reply('What is your prefix? = Prefix Check \n R U Online = status check \n SetGame = set playing msg \n Set Status = set status msg \n COMMNANDS ARE CASE SENSITIVE')	
 	}
 });
 

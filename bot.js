@@ -8,9 +8,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
-    var argresult = args.join(' ');
-    let gameargs = message.content.split(' ').slice(1);
-    var game = gameargs.join(' ');
+    var result = args.join(' ');
 
 	if (message.content === 'What is your prefix?') {
 	        message.channel.sendMessage(config.prefix);
@@ -19,30 +17,26 @@ client.on('message', message => {
 	if (!message.content.startsWith(config.prefix)) return;
 	if (message.author.bot) return;
 
-	if (message.content.startsWith(config.prefix + 'r u online')) {
+	if (message.content.startsWith(config.prefix + 'R U Online')) {
 		message.channel.sendMessage(`Yes, I am online! \`${Date.now() - message.createdTimestamp} ms\``);
 	} else
 
-	if (message.content.startsWith(config.prefix + 'send')) {
+	if (message.content.startsWith(config.prefix + 'Send')) {
 		client.channels.get('402386313548136448').sendMessage('Testing message sending to another channel.');
 	} else
 
-	if (message.content.startsWith(config.prefix + 'setgame')) {
-		client.user.setGame(game);
+	if (message.content.startsWith(config.prefix + 'Set Game')) {
+		client.setPlayingGame(result);
 	} else
 
-	if (message.content.startsWith(config.prefix + 'setstatus')) {
-		client.user.setStatus(argresult);
-	} else
-
-	if (message.content.startsWith(config.prefix + 'foo')) {
-		message.channel.sendMessage('bar');
+	if (message.content.startsWith(config.prefix + 'Set Status')) {
+		client.user.setStatus(result);
 	} else
 		
-	if (message.content.startsWith(config.prefix + 'help')) {
-		message.reply('What is your prefix? = Prefix Check \n r u online = status check \n setgame = set playing msg \n setstatus = set status msg \n COMMNANDS ARE CASE SENSITIVE')	
+	if (message.content.startsWith(config.prefix + 'Help')) {
+		message.reply('What is your prefix? = Prefix Check \n R U Online = status check \n Set Game = set playing msg \n Set Status = set status msg \n COMMNANDS ARE CASE SENSITIVE')	
 	}
 });
 
-// THIS  MUST  BE  THIS  WAY
+// IF YOU CHANGE THIS THEN THE BOT WONT WORK UNLESS YOU ARE SELF-HOSTING THE BOT
 client.login(process.env.BOT_TOKEN);

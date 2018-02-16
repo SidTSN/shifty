@@ -31,7 +31,7 @@ client.on('message', message => {
 	} else
 		
 	if (message.content.startsWith(config.prefix + 'SetStatus')) {
-		if (!result) result = 'invisible';
+		if (!result) result = invisible;
 		client.user.setStatus(result);
 	}
 		

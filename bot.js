@@ -37,6 +37,10 @@ client.on('message', message => {
 
 	if (message.content.startsWith(config.prefix + 'foo')) {
 		message.channel.sendMessage('bar');
+	} else
+		
+	if (message.content.startsWith(config.prefix + 'help')) {
+		message.reply('What is your prefix? = Prefix Check \n r u online = status check \n setgame = set playing msg \n setstatus = set status msg \n COMMNANDS ARE CASE SENSITIVE')	
 	}
 });
 

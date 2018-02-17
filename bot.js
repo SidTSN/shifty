@@ -11,7 +11,7 @@ bot.on('message', msg => {
   const args = msg.content.slice(cfg.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
   if (command === 'online?') {
-    msg.reply('Possibly.');
+    msg.channel.send('Possibly.');
   }
   console.log(`Args: ${args}\nCommand: ${command}`);
 });

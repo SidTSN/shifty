@@ -2,8 +2,8 @@ const { Client } = require('discord.js');
 const bot = new Client();
 const cfg = require('./config.json');
 bot.on('ready', () => {
-  console.log('Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers.');
-  bot.user.setGame('on ${bot.guilds.size} servers.');
+  console.log(`Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers.`);
+  bot.user.setGame(`on ${bot.guilds.size} servers.`);
 });
 
 bot.on('message', msg => {

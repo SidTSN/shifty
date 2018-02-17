@@ -10,7 +10,7 @@ bot.on('message', msg => {
   if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;
   const args = msg.content.slice(cfg.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
-  if (command === 'r u online?') {
+  if (command === 'online?') {
     msg.reply('Possibly.');
   }
   console.log(`Args: ${args}\nCommand: ${command}`);

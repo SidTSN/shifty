@@ -9,11 +9,11 @@ client.on('ready', () => {
 //client.on('', '' => {})
 
 client.on('guildDelete', guild => {
-	guild.defaultChannel.sendMessage(`I have left ${guild.name} at ${new Date()}`);
+	guild.channel.get('371122122862493696').sendMessage(`I have left ${guild.name} at ${new Date()}`);
 });
 
 client.on('guildCreate', guild => {
-	guild.defaultChannel.sendMessage(`I have joined ${guild.name} at ${new Date()}`);
+	guild.channel.get('371122122862493696').sendMessage(`I have joined ${guild.name} at ${new Date()}`);
 });
 
 client.on('message', message => {

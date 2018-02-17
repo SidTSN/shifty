@@ -16,6 +16,16 @@ client.on('guildCreate', guild => {
 	guild.channel.get('371122122862493696').sendMessage(`I have joined ${guild.name} at ${new Date()}`);
 });
 
+client.on('guildMemberAdd', member => {
+	let guild = member.guild;
+	guild.defaultChannel.sendMessage(`Please welcome ${member.user.username} to the server!`);
+});
+
+client.on('guildMemberRemove', member => {
+	let guild = member.guild;
+	guild.defaultChannel.sendMessage(`Seeya later ${member.user.username}, You will be missed!`);
+});
+
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
     var result = args.join(' ');

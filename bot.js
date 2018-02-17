@@ -7,7 +7,9 @@ bot.on('ready', () => {
 
 bot.on('message', msg => {
   if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;
-  console.log(msg.content);
+  const args = msg.content.slice(cfg.prefix.length).split(/ +/);
+  const command = args.shift().toLowerCase();
+  console.log(`Args: ${args}\nCommand: ${command}`);
 });
 
 // IF YOU CHANGE THIS THEN THE BOT WONT WORK UNLESS YOU ARE SELF-HOSTING THE BOT

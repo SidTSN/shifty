@@ -6,6 +6,12 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+//client.on('', '' => {})
+
+client.on('guildDelete', guild =>{
+	message.channel.get('402386313548136448').sendMessage(`I have left ${guild.name} at ${new Date()}`);
+});
+
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
     var result = args.join(' ');

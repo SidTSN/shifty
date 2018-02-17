@@ -1,29 +1,31 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json");
+const newUsers = [];
 
 client.on('ready', () => {
     console.log('I am ready!');
 });
 
-//client.on('', '' => {})
+client.on("guildMemberAdd", (member) => {
+  const guild = member.guild;
+  newUsers.set(member.id, member.user);
 
-client.on('guildDelete', guild => {
-	guild.channel.get('371122122862493696').sendMessage(`I have left ${guild.name} at ${new Date()}`);
+  if (newUsers.size > 1) {
+    const defaultChannel = guild.channels.find(c=> c.permissionsFor(guild.me).has("SEND_MESSAGES"));
+    const userlist = newUsers.map(u => u.toString()).join(" ");
+    defaultChannel.send("Ladies and gentlemen please welcome\n" + userlist);
+    newUsers.clear();
+  }
 });
 
-client.on('guildCreate', guild => {
-	guild.channel.get('371122122862493696').sendMessage(`I have joined ${guild.name} at ${new Date()}`);
+client.on("guildMemberRemove", (member) => {
+  if(newUsers.has(member.id)) newUsers.delete(member.id);
 });
 
-client.on('guildMemberAdd', member => {
-	let guild = member.guild;
-	guild.defaultChannel.sendMessage(`Please welcome ${member.user.username} to the server!`);
-});
-
-client.on('guildMemberRemove', member => {
-	let guild = member.guild;
-	guild.defaultChannel.sendMessage(`Seeya later ${member.user.username}, You will be missed!`);
+client.on("guildMemberRemove", (member) => {
+  const guild = member.guild;
+  if (newUsers[guild.id].has(member.id)) newUsers.delete(member.id);
 });
 
 client.on('message', message => {

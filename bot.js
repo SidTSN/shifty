@@ -6,6 +6,7 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
+  if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;
   console.log(msg.content);
 });
 

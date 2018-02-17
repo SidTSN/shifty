@@ -3,7 +3,7 @@ const bot = new Client();
 const cfg = require('./config.json');
 bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers.`);
-  bot.user.setGame(`on ${bot.guilds.size} servers.`);
+  bot.user.setPresence({ game: { name: `on ${bot.guilds.size} servers.`, type: 0 } });
 });
 
 bot.on('message', msg => {

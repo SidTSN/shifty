@@ -6,6 +6,14 @@ bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag} (${bot.user.id}) on ${bot.guilds.size} servers.`);
   bot.user.setPresence({ game: { name: `on ${bot.guilds.size} servers.`, type: 0 } });
 });
+// client.on('',''=>{});
+bot.on('guildDelete', guild => {
+  guild.defaultChannel.sendMessage(`I have left ${guild.name} at ${new Date()}`);
+});
+
+bot.on('guildCreate', guild => {
+  guild.defaultChannel.sendMessage(`I have joined ${guild.name}`);
+});
 
 bot.on('message', msg => {
   if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;

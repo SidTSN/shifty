@@ -7,34 +7,18 @@ bot.on('ready', () => {
   bot.user.setPresence({ game: { name: `on ${bot.guilds.size} servers.`, type: 0 } });
 });
 
-bot.on('message', message => {
-  //removes case-sensitivity and edits msg to give a better format in console
-  if (message.author.bot || !message.content.startsWith(cfg.prefix)) return;
-  const args = message.content.slice(cfg.prefix.length).split(/ +/);
+bot.on('message', msg => {
+  if (msg.author.bot || !msg.content.startsWith(cfg.prefix)) return;
+  const args = msg.content.slice(cfg.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
-  //start of commands
-  if (command === 'online') {
-    bot.sendMessage(msg.channel, "yes");
-  }
-  //Voice
-  if (!msg.guild) return;
   
-  if (command === 'join') {
-    if (msg.member.voiceChannel) {
-      msg.member.voiceChannel.join()
-        .then(connection => {
-          bot.msg.reply('Joined voice channel');
-        })
-        bot.catch(console.log);
-    } else {
-      bot.msg.reply('You need to join a voice channel first!');
-    }
+  if (command === 'online') {
+    const then = Date.now();
+    msg.channel.send('pinging...').then(m => {
+      m.edit(`yes ${Date.now() - then}`);
+    });
   }
-  //end of voice
-  //end of commands
-  //logs commands to console
   console.log(`Args: ${args}\nCommand: ${command}`);
 });
-
 //Bot Token (If hosting on heroku do not change)
 bot.login(process.env.BOT_TOKEN);

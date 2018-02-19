@@ -15,9 +15,7 @@ bot.on('message', msg => {
   if (command === 'online') {
     const then = Date.now();
     msg.channel.send('pinging...').then(m => {
-      m.edit({embed: 
-        "Yes```${Date.now() - then}```"
-     });
+      m.edit("Yes```${Date.now() - then}```");
     });
   }
   console.log(`Args: ${args}\nCommand: ${command}`);

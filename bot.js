@@ -12,8 +12,8 @@ bot.on('message', msg => {
   const args = msg.content.slice(cfg.prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
   
-  if (command === 'online') {
-    msg.channel.send('pinging...').then(m => {
+  if (command === 'ruonline?') {
+    msg.channel.send('Pinging...').then(m => {
       m.edit(`Yes \`${Date.now() - msg.createdTimestamp} ms\``);
     });
   }

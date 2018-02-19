@@ -1,2 +1,2 @@
-# shifty
-a very shifty discord bot
+# Shifty Bot
+A very shifty discord moderation bot.

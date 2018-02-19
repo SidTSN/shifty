@@ -14,8 +14,23 @@ bot.on('message', msg => {
   const command = args.shift().toLowerCase();
   //start of commands
   if (command === 'online') {
-    bot.sendMessage(message.channel, "yes");
+    bot.sendMessage(msg.channel, "yes");
   }
+  //Voice
+  if (!msg.guild) return;
+  
+  if (command === 'join') {
+    if (msg.member.voiceChannel) {
+      msg.member.voiceChannel.join()
+        .then(connection => {
+          msg.reply('Joined voice channel');
+        })
+        .catch(console.log);
+    } else {
+      msg.reply('You need to join a voice channel first!');
+    }
+  }
+  //end of voice
   //end of commands
   //logs commands to console
   console.log(`Args: ${args}\nCommand: ${command}`);

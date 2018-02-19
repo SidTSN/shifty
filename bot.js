@@ -14,7 +14,7 @@ bot.on('message', msg => {
   const command = args.shift().toLowerCase();
   //start of commands
   if (command === 'online') {
-    bot.sendMessage(msg.channel, "yes");
+    bot.sendMessage(msg.channel, "Yes i am online");
   }
   //Voice
   if (!msg.guild) return;

@@ -8,11 +8,11 @@ bot.on('ready', () => {
 });
 // client.on('',''=>{});
 bot.on('guildDelete', guild => {
-  guild.defaultChannel.sendMessage(`I have left ${guild.name} at ${new Date()}`);
+  guild.defaultChannel.send(`I have left ${guild.name} at ${new Date()}`);
 });
 
 bot.on('guildCreate', guild => {
-  guild.defaultChannel.sendMessage(`I have joined ${guild.name}`);
+  guild.defaultChannel.send(`I have joined ${guild.name}`);
 });
 
 bot.on('message', msg => {

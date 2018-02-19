@@ -1,3 +1,5 @@
+//Shifty Bot Config File
 {
+	//Sets The Bot Prefix
 	"prefix": "Shifty/"
 }

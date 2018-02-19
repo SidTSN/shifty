@@ -13,9 +13,8 @@ bot.on('message', msg => {
   const command = args.shift().toLowerCase();
   
   if (command === 'online') {
-    const then = Date.now();
     msg.channel.send('pinging...').then(m => {
-      m.edit("Yes````${Date.now() - then}````);
+      m.edit(`Yes \`${Date.now() - msg.createdTimestamp} ms\``);
     });
   }
   console.log(`Args: ${args}\nCommand: ${command}`);

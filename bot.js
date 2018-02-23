@@ -13,28 +13,28 @@ bot.on('ready', () =>
 //Commands.
 bot.on('guildCreate', member => 
 {
-  const channel = member.guild.channels.find('name', 'arrivals');
+  const channel = member.guild.channels.find('name', 'arrivals-and-departures');
   if (!channel) return;
-  channel.send(`${member} has joined the server.`);
+  channel.send(`${member} is here to give gifts and eat cookies, and he is all out of cookies`);
 });
 
-bot.on('guildDelete', guild => 
+bot.on('guildDelete', member => 
 {
-  const channel = member.guild.channels.find('name', 'arrivals');
+  const channel = member.guild.channels.find('name', 'arrivals-and-departures');
   if (!channel) return;
   channel.send(`${member} has left the server.`);
 });
 
 bot.on('guildMemberAdd', member => 
 {
-  const channel = member.guild.channels.find('name', 'arrivals');
+  const channel = member.guild.channels.find('name', 'arrivals-and-departures');
   if (!channel) return;
-  channel.send(`${member} has joined the server.`);
+  channel.send(`${member} is here to give gifts and eat cookies, and they are all out of cookies`);
 });
 
 bot.on('guildMemberRemove', member => 
 {
-  const channel = member.guild.channels.find('name', 'arrivals');
+  const channel = member.guild.channels.find('name', 'arrivals-and-departures');
   if (!channel) return;
   channel.send(`${member} has left the server.`);
 });

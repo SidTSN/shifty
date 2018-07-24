@@ -51,6 +51,13 @@ bot.on('message', msg =>
       m.edit(`Yes \`${Date.now() - msg.createdTimestamp} ms\``);
     });
   }
+  
+  if (command === "prefixset")
+  {
+    msg.channel.send('pinging...').then(m => {
+      m.edit(`Prefix has been set \`${Date.now() - msg.createdTimestamp} ,s \``);
+    });
+  }
   console.log(`Args: ${args}\nCommand: ${command}`);
 });
 
